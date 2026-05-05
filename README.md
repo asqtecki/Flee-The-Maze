@@ -65,7 +65,7 @@ game.exe
 ---
 
 # How to Play
-* There are total of three levels. Each level has a bigger maze with +2 number of ghosts. The number of ghosts in the first level is 2.
+* There are total of three levels. Each level has a bigger maze with +2 number of ghosts. The number of ghosts in the first level is 1.
 * Once executed, you'll spawn at the maze entrance.
 * Your goal is to avoid the ghosts and find the exit in order to progress to the next level.
 * The player movement is controlled using WASD keys. The SHIFT key can be used for a speed booster.
