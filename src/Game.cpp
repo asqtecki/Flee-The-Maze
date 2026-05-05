@@ -28,14 +28,13 @@ Game::Game(Model wall) : wallModel(wall) {
 
     jumpscare = LoadSound("Music/jumpscare.mp3");
 
-    mazeSize = 10;
+    mazeSize = 5;
     level = 1;
     loadingTimer = jumpscareTimer = 0.0f;
     loadingDuration = 2.5f;
     jumpscareDuration = 2.0f;
-    ghostPerLevel = 2;
+    ghostPerLevel = 1;
     state = PLAYING;
-
 
     grass = LoadTexture("Graphics/grass.png");
     SetTextureWrap(grass, TEXTURE_WRAP_REPEAT);
@@ -191,7 +190,7 @@ void Game::Update() {
                     gr = std::rand() % mazeSize;
                     gc = std::rand() % mazeSize;
                 } while (abs(gr-ent.first)<3 || abs(gc-ent.second)<3);
-                ghosts.enqueue(Ghost({gc*cs+cs/2.0f, 1.0f, gr*cs+cs/2.0f}));
+                newgs.enqueue(Ghost({gc*cs+cs/2.0f, 1.0f, gr*cs+cs/2.0f}));
             }
             ghosts += newgs;
             for (int i=0;i<ghosts.getSize();i++) ghosts[i].setRepathDelay(0.8f+(level*0.2f));
@@ -212,8 +211,8 @@ void Game::Update() {
 }
 
 void Game::Draw() {
-    BeginDrawing();
     if (state==LOADING) {
+        BeginDrawing();
         ClearBackground(BLACK);
         DrawText("LOADING NEXT LEVEL...", 450, 300, 20, WHITE);
         DrawText(TextFormat("LEVEL: %d", (level+1)), 550, 350, 20, GRAY);
@@ -248,6 +247,7 @@ void Game::Draw() {
         EndDrawing();
         return;
     }
+    BeginDrawing();
     ClearBackground({10, 10, 30, 255});
     Camera3D cam = player.getCamera();
     BeginMode3D(cam);

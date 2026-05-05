@@ -14,7 +14,7 @@ class Ghost : public Entity {
         const Maze& maze,
         std::pair<int, int> start,
         std::pair<int, int> end
-    );
+    ); //pathfinding
     float manhattan(std::pair<int, int> a, std::pair<int, int> b) const;
     void move(const Maze* maze, Vector3 pp);
     public:
