@@ -1,8 +1,12 @@
 # Flee The Maze - OOP Project
 
+---
+
 ## Description
 "Flee The Maze" is a 3D Game written in C++ using Raylib. It implements basic OOP concepts including Abstraction, Encapsulation, 
 Inheritance, Polymorphism, Operator Overloading and etc.
+
+---
 
 ## Features
 * 3D implementation
@@ -15,12 +19,16 @@ Inheritance, Polymorphism, Operator Overloading and etc.
 * Clearance after 3 levels
 * Wall and collision detection
 
+---
+
 ## Pre-requisites
 Before compiling, ensure you have the following installed:
 * **MinGW**: C++/C compiler.
 * **Raylib**: Game development library for C/C++.
 * **Makefile**: The makefile provided within the project file to build.
 * **Assets**: The "Graphics/" and "Music/" folders.
+
+---
 
 # Compilation and Setup
 Type the following commands on your Command Prompt OR Terminal once the Pre-requisites are installed and set up.
@@ -54,12 +62,21 @@ OR
 game.exe
 ```
 
+---
+
 # How to Play
 * There are total of three levels. Each level has a bigger maze with +2 number of ghosts. The number of ghosts in the first level is 2.
 * Once executed, you'll spawn at the maze entrance.
 * Your goal is to avoid the ghosts and find the exit in order to progress to the next level.
 * The player movement is controlled using WASD keys. The SHIFT key can be used for a speed booster.
 * Clear all three levels to win the game.
+
+---
+
+# To Be Added
+* Project Report
+
+---
 
 # Future Improvements/Changes
 * Add a menu with Play/Tutorial/Exit buttons.
