@@ -35,7 +35,7 @@ Type the following commands on your Command Prompt OR Terminal once the Pre-requ
 
 * Clone the repository:
 ```cmd
-git clone https://github.com/asqtecki/Flee-The-Maze-OOP.git
+git clone https://github.com/asqtecki/Flee-The-Maze.git
 ```
 * Navigate to the folder (Say Desktop/Flee-The-Maze-OOP):
 ```cmd
