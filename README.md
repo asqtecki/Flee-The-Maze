@@ -39,9 +39,9 @@ git clone https://github.com/asqtecki/Flee-The-Maze.git
 ```
 * Navigate to the folder (Say Desktop/Flee-The-Maze-OOP):
 ```cmd
-cd Desktop/Flee-The-Maze-OOP
+cd Desktop/Flee-The-Maze
 ```
-* To ensure the 64-bit compiler is used and to avoid architecture conflicts:
+* To ensure the 64-bit compiler is used and to avoid architecture conflicts (for Windows):
 ```cmd
 set PATH=C:\raylib\w64devkit\bin;%PATH%
 ```
