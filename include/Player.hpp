@@ -3,7 +3,7 @@
 #include "Maze.hpp"
 #include "Entity.hpp"
 
-class Player : public Entity{
+class Player : public Entity {
     Camera3D camera; //fpp mode
     float shift_speed; //booster
     float yaw, pitch; //for rotation
