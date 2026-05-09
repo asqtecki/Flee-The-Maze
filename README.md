@@ -73,11 +73,6 @@ game.exe
 
 ---
 
-# To Be Added
-* Project Report
-
----
-
 # Future Improvements/Changes
 * Add a menu with Play/Tutorial/Exit buttons.
 * Better lightings and sound effects.
