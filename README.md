@@ -26,7 +26,7 @@ Inheritance, Polymorphism, Operator Overloading and etc.
 * **Build tool**: Make — also included with w64devkit
 * **Graphics library**: Raylib 5.5 installed at C:/raylib/raylib
 * **Platform**: Windows 10/11
-* **Assets**: The "Graphics/" and "Music/" folders.
+* **Assets**: The `Graphics/` and `Music/` folders.
 
 ---
 
@@ -61,8 +61,8 @@ OR
 ```cmd
 game.exe
 ```
-Note: Run game.exe from the project root directory to ensure the 
-Graphics/ and Music/ asset folders are found at their correct relative paths.
+Note: Run `game.exe` from the project root directory to ensure the 
+`Graphics/` and `Music/` asset folders are found at their correct relative paths.
 
 ---
 
