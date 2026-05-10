@@ -22,11 +22,11 @@ Inheritance, Polymorphism, Operator Overloading and etc.
 ---
 
 ## Pre-requisites
-Before compiling, ensure you have the following installed:
-* **MinGW**: C++/C compiler.
-* **Raylib**: Game development library for C/C++.
-* **Makefile**: The makefile provided within the project file to build.
-* **Assets**: The "Graphics/" and "Music/" folders.
+**Compiler**: g++ (MinGW-w64), C++17 compatible — comes with w64devkit
+**Build tool**: Make — also included with w64devkit
+**Graphics library**: Raylib 5.5 installed at C:/raylib/raylib
+**Platform**: Windows 10/11
+**Assets**: The "Graphics/" and "Music/" folders.
 
 ---
 
