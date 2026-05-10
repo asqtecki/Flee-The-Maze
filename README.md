@@ -22,11 +22,11 @@ Inheritance, Polymorphism, Operator Overloading and etc.
 ---
 
 ## Pre-requisites
-**Compiler**: g++ (MinGW-w64), C++17 compatible — comes with w64devkit
-**Build tool**: Make — also included with w64devkit
-**Graphics library**: Raylib 5.5 installed at C:/raylib/raylib
-**Platform**: Windows 10/11
-**Assets**: The "Graphics/" and "Music/" folders.
+* **Compiler**: g++ (MinGW-w64), C++17 compatible — comes with w64devkit
+* **Build tool**: Make — also included with w64devkit
+* **Graphics library**: Raylib 5.5 installed at C:/raylib/raylib
+* **Platform**: Windows 10/11
+* **Assets**: The "Graphics/" and "Music/" folders.
 
 ---
 
