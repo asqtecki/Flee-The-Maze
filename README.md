@@ -61,6 +61,8 @@ OR
 ```cmd
 game.exe
 ```
+Note: Run game.exe from the project root directory to ensure the 
+Graphics/ and Music/ asset folders are found at their correct relative paths.
 
 ---
 
