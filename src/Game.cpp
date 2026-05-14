@@ -7,12 +7,13 @@
 bool Game::isAtExit() const {
     float cellSize = maze->getCellSize();
     Vector3 pos = player.getPosition();
+    //convert to grid coords from world coords
     int col = (int)floor(pos.x/cellSize);
     int row = (int)floor(pos.z/cellSize);
     if (col<0) col = 0;
     if (row<0) row = 0;
-    if (col>=maze->getColumn()) col = maze->getColumn();
-    if (row>=maze->getRow()) row = maze->getRow();
+    if (col>=maze->getColumn()) col = maze->getColumn() - 1;
+    if (row>=maze->getRow()) row = maze->getRow() - 1;
     auto exit = maze->getExit();
     return (row==exit.first && col==exit.second);
 }
@@ -49,7 +50,7 @@ Game::Game(Model wall) : wallModel(wall) {
     grassModel.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = grass;
 
     float cx, cz;
-    cx = cz = mazeSize * maze->getCellSize()/2.0f;
+    cx = cz = mazeSize * maze->getCellSize()/2.0f; //centre of maze {cx, cz}
     for (int i=0;i<150;i++) {
         Star s;
         s.position = {
@@ -127,13 +128,13 @@ void Game::Update() {
                 entrance.first * cs + cs/2.0f
             });
             ghosts.clear();
-            for (int i = 0; i < ghostPerLevel; i++) {
+            for (int i=0;i<ghostPerLevel;i++) {
                 int gr, gc;
                 do {
                     gr = std::rand() % mazeSize;
                     gc = std::rand() % mazeSize;
-                } while (abs(gr - entrance.first) < 3 || abs(gc - entrance.second) < 3);
-                ghosts.enqueue(Ghost({gc * cs + cs/2.0f, 1.0f, gr * cs + cs/2.0f}));
+                } while (abs(gr-entrance.first)<3 || abs(gc-entrance.second)<3);
+                ghosts.enqueue(Ghost({gc*cs+cs/2.0f, 1.0f, gr*cs+cs/2.0f}));
             }
             exitPlayed = false;
             state = PLAYING;
@@ -164,9 +165,9 @@ void Game::Update() {
             for (int i=0;i<150;i++) {
                 Star s;
                 s.position = {
-                    cx + (float)(std::rand() % 200 - 100),
-                    (float)(15 + std::rand() % 20),
-                    cz + (float)(std::rand() % 200 - 100)
+                    cx + (float)(std::rand()%200 - 100),
+                    (float)(15 + std::rand()%20),
+                    cz + (float)(std::rand()%200 - 100)
                 };
                 s.size = 0.1f + (std::rand() % 10) / 30.0f;
                 s.twinkles = (std::rand() % 100) / 100.0f;
@@ -184,7 +185,7 @@ void Game::Update() {
             Queue<Ghost> newgs;
             auto ent = maze->getEntrance();
             float cs = maze->getCellSize();
-            for (int i=0; i<ghostPerLevel;i++) {
+            for (int i=0;i<ghostPerLevel;i++) {
                 int gr, gc;
                 do {
                     gr = std::rand() % mazeSize;

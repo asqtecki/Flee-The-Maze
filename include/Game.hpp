@@ -17,7 +17,7 @@ enum GameState {
 class Game {
     struct Star {
         Vector3 position;
-        float size, twinkles;
+        float size, twinkles; //twinkling intensity
     };
     //sounds and music
     Music permBgSound;

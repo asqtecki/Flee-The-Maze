@@ -8,7 +8,7 @@
 class Ghost : public Entity {
     std::vector<std::pair<int, int>> path; //cell coords
     std::pair<int, int> target; //current player cell
-    Vector3 targetPos; //current player pos
+    Vector3 targetPos; //current player pos coords
     float repathTime, repathDelay;
     std::vector<std::pair<int, int>> aStar(
         const Maze& maze,

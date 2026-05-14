@@ -32,7 +32,7 @@ bool Cell::hasWall(int idx) const {
 
 void Cell::removeWall(int idx) {
     if (idx>=0 && idx<4) {
-        walls[idx] = false;
+        walls[idx] = false; 
         return;
     }
     throw std::out_of_range("Index out of bounds!");

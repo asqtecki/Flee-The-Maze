@@ -23,7 +23,6 @@ class Maze {
         void generateMaze(); //generates a maze using DFS
         Cell& getCell(int r, int c); //returns a reference to a cell at (r, c)
         const Cell& getCell(int r, int c) const; //returns a const reference to a cell at (r, c)
-        void printMaze() const; //prints the maze to the console
         void Draw3D(Model& wallM) const; //for raylib drawing
         int getRow() const;
         int getColumn() const;

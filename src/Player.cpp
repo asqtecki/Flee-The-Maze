@@ -1,8 +1,6 @@
 #include "../include/Player.hpp"
 #include <cmath>
 
-
-
 Player::Player(Vector3 spawn) : Entity(spawn), shift_speed(2.5f), yaw(0.0f), pitch(0.0f) {
     speed = 0.03f;
     camera.position = position;
@@ -22,9 +20,9 @@ bool Player::checkCollision(const Maze& maze, Vector3 pos) const {
     int row = (int)(pos.z/cells);
     if (row<0 || row>=maze.getRow() || col<0 || col>=maze.getColumn()) return true;
     const Cell& cell = maze.getCell(row, col);
-    float ox = fmod(pos.x, cells); //offset X
-    float oz = fmod(pos.z, cells); //offset Y
-    float ps = 0.2f; //player size
+    float ox = fmod(pos.x, cells); //how much % has the player moved into the cell on x-axis
+    float oz = fmod(pos.z, cells); //how much % has the player moved into the cell on z-axis
+    float ps = 0.2f; //player size/radius
     if (cell.hasWall(0) && oz<ps) return true;
     if (cell.hasWall(1) && ox>(cells-ps)) return true;
     if (cell.hasWall(2) && oz>(cells-ps)) return true;

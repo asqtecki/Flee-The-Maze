@@ -23,10 +23,10 @@ int Maze::getColumn() const { return columns; }
 bool Maze::isValid(int r, int c) const { return (r>=0 && r<rows && c>=0 && c<columns); } 
 
 int Maze::getOppositeWall(int dir) const {
-    if (dir==0) return 2;
-    if (dir==2) return 0;
-    if (dir==1) return 3;
-    if (dir==3) return 1;
+    if (dir==0) return 2; // north -> south
+    if (dir==2) return 0; // south -> north
+    if (dir==1) return 3; // east -> west
+    if (dir==3) return 1; // west -> east
     throw std::out_of_range("Invalid direction");
 }
 
@@ -36,14 +36,15 @@ const Cell& Maze::getCell(int r, int c) const { return maze[r][c]; }
 
 void Maze::generateMaze() {
     Stack<std::pair<int, int>> s;
-    int rs = 0, rc = 0;
+    int rs = 0, rc = 0; //starting cell
     maze[rs][rc].setVisited(true);
     s.push({rs, rc});
-    while (!s.isEmpty()) {
-        auto [r, c] = s.top();
+    while (!s.isEmpty()) { //when all cells are visited, stack becomes empty
+        auto [r, c] = s.top(); //current coords
         std::vector<std::pair<int, int>> neighbors;
         std::vector<int> direc;
         for (int i=0;i<4;i++) {
+            //neighbor coords in direction i = {0, 1, 2, 3} = {N, E, S, W}
             int nr = r + dirR[i];
             int nc = c + dirC[i];
             if (isValid(nr, nc) && !maze[nr][nc].isVisited()) {
@@ -77,12 +78,12 @@ void Maze::generateMaze() {
     }
     else if (entry==1) {
         entryRow = std::rand() % rows;
-        entryColumn = columns - 1;
+        entryColumn = columns - 1; //right index = total col - 1
         Entrance = {entryRow, entryColumn};
         maze[entryRow][entryColumn].removeWall(1);
     }
     else if (entry==2) {
-        entryRow = rows - 1;
+        entryRow = rows - 1; //bottom index = total row - 1
         entryColumn = std::rand() % columns;
         Entrance = {entryRow, entryColumn};
         maze[entryRow][entryColumn].removeWall(2);
@@ -116,31 +117,6 @@ void Maze::generateMaze() {
         exitColumn = 0;
         Exit = {exitRow, exitColumn};
         maze[exitRow][exitColumn].removeWall(3);
-    }
-}
-
-void Maze::printMaze() const {
-    for (int j=0;j<columns;j++) std::cout << "+---";
-    std::cout << "+" << std::endl;
-    for (int i=0;i<rows;i++) {
-        for (int j=0;j<columns;j++) {
-            if (j==0) {
-                if (maze[i][j].hasWall(3)) std::cout << "|";
-                else std::cout << " ";
-            }
-            if (Entrance.first==i && Entrance.second==j) std::cout << " S "; //entrance
-            else if (Exit.first==i && Exit.second==j) std::cout << " E "; //exit
-            else std::cout << "   ";
-            if (maze[i][j].hasWall(1)) std::cout << "|";
-            else std::cout << " ";
-        }
-        std::cout << std::endl;
-        for (int j=0;j<columns;j++) {
-            std::cout << "+";
-            if (maze[i][j].hasWall(2)) std::cout << "---";
-            else std::cout << "   ";
-        }
-        std::cout << "+" << std::endl;
     }
 }
 
